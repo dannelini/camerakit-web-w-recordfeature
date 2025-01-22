@@ -256,15 +256,8 @@ if (CONFIG.API_TOKEN === "__API_TOKEN__") {
 
     let renderWidth, renderHeight
 
-    if (isMobile) {
-      // Mobile: use full screen
-      renderWidth = width
-      renderHeight = height
-    } else {
-      // Desktop: use full window size
-      renderWidth = width
-      renderHeight = height
-    }
+    renderWidth = width
+    renderHeight = height
 
     liveRenderTarget.style.width = `${renderWidth}px`
     liveRenderTarget.style.height = `${renderHeight}px`
