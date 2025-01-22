@@ -28,7 +28,7 @@ A web application demonstrating Snap's Camera Kit integration with video recordi
 
 ## Tech Stack 🛠️
 
-- Camera Kit for Web
+- Camera Kit for Web V1.1.0
 - FFmpeg.wasm (for video processing)
 - Webpack 5
 - MediaRecorder API

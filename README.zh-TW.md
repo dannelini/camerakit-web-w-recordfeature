@@ -26,7 +26,7 @@
 
 ## 技術架構 🛠️
 
-- Camera Kit for Web
+- Camera Kit for Web V1.1.0
 - FFmpeg.wasm（影片處理）
 - Webpack 5
 - MediaRecorder API
