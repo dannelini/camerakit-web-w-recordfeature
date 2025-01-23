@@ -90,7 +90,7 @@ cd camerakit-web-w-recordfeature
 2. Install dependencies:
 
 ```bash
-npm install
+npm ci
 ```
 
 3. Configure Camera Kit credentials:
@@ -276,6 +276,21 @@ SOFTWARE.
 - Based on Vincent Trastour's Camera Kit tutorial: [Watch on YouTube](https://www.youtube.com/watch?v=ZQM9Ua_JKMY)
 - Built with [Snap Camera Kit](https://kit.snapchat.com/camera-kit)
 - Uses [FFmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
+
+## ⚠️ Important Note About Dependencies
+
+This project requires specific dependency versions to function correctly. Please:
+
+- Do not delete `node_modules` manually
+- Do not modify `package-lock.json`
+- Use the existing `node_modules` as is
+- Use `npm ci` instead of `npm install` because:
+  - It's faster and more reliable
+  - It ensures exact versions from package-lock.json
+  - It removes node_modules before installing
+  - It won't update package.json or package-lock.json
+
+The Camera Kit integration is sensitive to dependency versions. Modifying these may break the functionality.
 
 ---
 
