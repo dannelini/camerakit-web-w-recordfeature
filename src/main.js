@@ -199,7 +199,7 @@ if (CONFIG.API_TOKEN === "__API_TOKEN__") {
       const url = URL.createObjectURL(fixedBlob)
       //hide loading icon once video is done processing
       loadingIcon.style.display = "none"
-      displayPostRecordButtons(url)
+      displayPostRecordButtons(url, fixedBlob)
     }
     //Start recording
     mediaRecorder.start()
