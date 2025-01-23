@@ -81,7 +81,7 @@ project/
 1. 複製專案：
 
 ```bash
-git clone <你的儲存庫網址>
+git clone https://github.com/gowaaa/camerakit-web-w-recordfeature.git
 cd camerakit-web-w-recordfeature
 ```
 
@@ -90,6 +90,14 @@ cd camerakit-web-w-recordfeature
 ```bash
 npm ci
 ```
+
+> 💡 **注意**: 建議使用 `npm ci` 進行首次安裝，因為它：
+>
+> - 確保使用 package-lock.json 中的精確版本
+> - 速度更快且更可靠
+> - 在所有環境中提供一致的安裝結果
+>
+> 僅在需要修改依賴項目（添加新的或更新現有的）時才使用 `npm install`。
 
 3. 設定 Camera Kit 憑證：
    建立 `src/config.js` 並填入你的憑證：

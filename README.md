@@ -83,7 +83,7 @@ project/
 1. Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/gowaaa/camerakit-web-w-recordfeature.git
 cd camerakit-web-w-recordfeature
 ```
 
@@ -92,6 +92,14 @@ cd camerakit-web-w-recordfeature
 ```bash
 npm ci
 ```
+
+> 💡 **Note**: For first-time installation, `npm ci` is recommended as it:
+>
+> - Ensures exact versions from package-lock.json
+> - Is faster and more reliable
+> - Provides consistent installations across all environments
+>
+> Only use `npm install` if you need to modify dependencies (add new ones or update existing ones).
 
 3. Configure Camera Kit credentials:
    Create `src/config.js` with your credentials:
