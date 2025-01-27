@@ -5,8 +5,6 @@
 
 一個展示 Snap Camera Kit 整合的網頁應用程式，允許使用者套用 Snap 濾鏡並錄製影片。
 
-![示範](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
-
 > ⚠️ **安全警告**  
 > **請勿將此程式碼用於客戶專案**  
 > Camera Kit API Token 在開發環境中會暴露在前端程式碼中。
@@ -15,6 +13,8 @@
 > - 使用 Vercel 的環境變數（請參考[部署到 Vercel](#部署到-vercel-) 章節）
 > - 切勿將實際憑證提交到 GitHub
 > - 敏感憑證僅保留在本地開發用的 `config.js` 中
+
+![示範](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
 
 ## 功能特點 ✨
 

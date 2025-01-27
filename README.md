@@ -7,8 +7,6 @@
 
 A web application demonstrating Snap's Camera Kit integration with video recording capabilities. This project allows users to apply Snap Lenses and record videos with the effects.
 
-![Demo](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
-
 > ⚠️ **SECURITY WARNING**  
 > **DO NOT USE THIS REPOSITORY FOR CLIENT PROJECTS**  
 > The Camera Kit API Token is exposed in client-side code in development.
@@ -17,6 +15,8 @@ A web application demonstrating Snap's Camera Kit integration with video recordi
 > - Use Vercel's environment variables (see [Deployment on Vercel](#deployment-on-vercel-) section)
 > - Never commit real credentials to GitHub
 > - Keep sensitive tokens in your local `config.js` for development only
+
+![Demo](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
 
 ## Features ✨
 
