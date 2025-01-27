@@ -7,6 +7,8 @@
 
 A web application demonstrating Snap's Camera Kit integration with video recording capabilities. This project allows users to apply Snap Lenses and record videos with the effects.
 
+https://github.com/gowaaa/camerakit-web-w-recordfeature/assets/video_demo.mp4
+
 > ⚠️ **SECURITY WARNING**  
 > **DO NOT USE THIS REPOSITORY FOR CLIENT PROJECTS**  
 > The Camera Kit API Token is exposed in client-side code in development.

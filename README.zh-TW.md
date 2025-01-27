@@ -5,6 +5,8 @@
 
 一個展示 Snap Camera Kit 整合的網頁應用程式，允許使用者套用 Snap 濾鏡並錄製影片。
 
+https://github.com/gowaaa/camerakit-web-w-recordfeature/assets/video_demo.mp4
+
 > ⚠️ **安全警告**  
 > **請勿將此程式碼用於客戶專案**  
 > Camera Kit API Token 在開發環境中會暴露在前端程式碼中。
