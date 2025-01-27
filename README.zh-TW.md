@@ -5,7 +5,7 @@
 
 一個展示 Snap Camera Kit 整合的網頁應用程式，允許使用者套用 Snap 濾鏡並錄製影片。
 
-<video src="https://github.com/gowaaa/camerakit-web-w-recordfeature/camerakit-template-demo.mov" autoplay loop muted playsinline style="max-width: 100%;">
+<video src="https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.mov" autoplay loop muted playsinline style="max-width: 100%;">
 </video>
 
 > ⚠️ **安全警告**  
