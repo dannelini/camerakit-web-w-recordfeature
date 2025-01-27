@@ -85,23 +85,25 @@ body {
 
 #back-button-container {
   position: absolute;
-  top: 3%;
-  left: 5%;
+  top: 2%;
+  left: 3%;
   z-index: 1000;
 }
 
 #back-button {
   transform: none;
   background-color: transparent;
-  height: 70px;
-  width: 70px;
+  height: 100px;
+  width: 100px;
   color: transparent;
   border: none;
   cursor: pointer;
   user-select: none;
   outline: none;
   padding: 0%;
-  transition: transform 0.2s ease;
+  transition: transform 0.15s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 #back-button img {
   /* Add this if your button uses an image */
@@ -111,21 +113,23 @@ body {
 }
 
 #back-button:active {
-  transform: translate(5%, 5%);
+  transform: translate(2px, 2px);
 }
 
 #share-button {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-color: transparent;
-  transform: translate(-75%, 0);
+  transform: translate(-25%, 0);
   color: transparent;
   border: none;
   cursor: pointer;
   user-select: none;
   outline: none;
   padding: 0%;
-  transition: transform 0.2s ease;
+  transition: transform 0.15s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 #share-button img {
@@ -135,21 +139,23 @@ body {
 }
 
 #share-button:active {
-  transform: translate(-80%, 5%);
+  transform: translate(calc(-25% + 2px), 2px);
 }
 
 #download-button {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-color: transparent;
-  transform: translate(75%, 0);
+  transform: translate(25%, 0);
   color: transparent;
   border: none;
   cursor: pointer;
   user-select: none;
   outline: none;
   padding: 0%;
-  transition: transform 0.2s ease;
+  transition: transform 0.15s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 #download-button img {
@@ -159,7 +165,7 @@ body {
 }
 
 #download-button:active {
-  transform: translate(70%, 5%);
+  transform: translate(calc(25% + 2px), 2px);
 }
 
 #switch-cam {
@@ -181,6 +187,8 @@ body {
   user-select: none; /* Disable text selection */
   outline: none;
   transition: transform 0.2s ease; /* Smooth hover animation */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 #switch-button:active {
@@ -214,16 +222,21 @@ body {
 /* Desktop-specific styles */
 .desktop #outline,
 .desktop #record-button {
-  height: 100px;
-  width: 100px;
+  height: 70px;
+  width: 70px;
 }
 
 .desktop #share-button {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
 }
 
 .desktop #download-button {
+  height: 70px;
+  width: 70px;
+}
+
+.desktop #back-button {
   height: 50px;
   width: 50px;
 }
