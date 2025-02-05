@@ -17,6 +17,7 @@ A web application demonstrating Snap's Camera Kit integration with video recordi
 > - Keep sensitive tokens in your local `config.js` for development only
 
 ![Demo](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
+🔗 [Live Demo](https://camerakit-web-w-recordfeature-gw.vercel.app)
 
 ## Features ✨
 

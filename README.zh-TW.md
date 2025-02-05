@@ -15,6 +15,7 @@
 > - 敏感憑證僅保留在本地開發用的 `config.js` 中
 
 ![示範](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
+🔗 [線上示範](https://camerakit-web-w-recordfeature-gw.vercel.app)
 
 ## 功能特點 ✨
 
