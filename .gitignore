@@ -1,5 +1,8 @@
+# Source config
 src/config.js
-build/*.js
+
+# Build output
+build/
 
 # Dependencies
 node_modules/
