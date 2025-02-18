@@ -145,7 +145,7 @@ Build the project:
 npm run build
 ```
 
-Output will be in the `build` directory.
+Output will be in a new `build` directory.
 
 ### Deployment on Vercel 🚀
 
