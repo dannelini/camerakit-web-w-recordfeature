@@ -292,9 +292,7 @@ SOFTWARE.
 
 This project requires specific dependency versions to function correctly. Please:
 
-- Do not delete `node_modules` manually
 - Do not modify `package-lock.json`
-- Use the existing `node_modules` as is
 - Use `npm ci` instead of `npm install` because:
   - It's faster and more reliable
   - It ensures exact versions from package-lock.json
