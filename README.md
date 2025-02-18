@@ -58,7 +58,6 @@ project/
 │   ├── config.js      # Camera Kit credentials
 │   ├── index.html     # Main HTML file
 │   └── main.js        # Main JavaScript file
-├── build/             # Production build output
 ├── webpack.config.js  # Webpack configuration
 └── package.json       # Project dependencies
 ```
