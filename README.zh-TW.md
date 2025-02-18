@@ -56,7 +56,6 @@ project/
 │   ├── config.js      # Camera Kit 憑證
 │   ├── index.html     # 主要 HTML 檔案
 │   └── main.js        # 主要 JavaScript 檔案
-├── build/             # 生產環境建置輸出
 ├── webpack.config.js  # Webpack 設定
 └── package.json       # 專案依賴
 ```
@@ -287,9 +286,7 @@ Copyright (c) 2024
 
 本專案需要特定版本的依賴項目才能正常運作。請：
 
-- 不要手動刪除 `node_modules`
 - 不要修改 `package-lock.json`
-- 保持現有的 `node_modules` 不變
 - 使用 `npm ci` 而不是 `npm install`，因為：
   - 速度更快且更可靠
   - 確保使用 package-lock.json 中的精確版本
