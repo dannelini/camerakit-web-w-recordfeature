@@ -8,13 +8,22 @@
 A web application demonstrating Snap's Camera Kit integration with video recording capabilities. This project allows users to apply Snap Lenses and record videos with the effects.
 
 > ⚠️ **SECURITY WARNING**  
-> **DO NOT USE THIS REPOSITORY FOR CLIENT PROJECTS WITHOUT PROPER SETUP**  
-> For secure deployment:
+> **HOW TO USE THIS REPO SAFELY**  
+> Follow these steps to keep your app secure:
 >
-> - Use Vercel's environment variables (see [Deployment on Vercel](#deployment-on-vercel-) section)
-> - Never commit real credentials to GitHub
-> - Keep sensitive tokens in your local `.env` file (and ensure it's in `.gitignore`)
-> - Never expose API tokens in client-side code
+> 1. For local development:
+>
+>    - Copy `.env.example` to create your own `.env` file
+>    - Add your Camera Kit credentials to `.env`
+>    - Never share or commit your `.env` file
+>    - ⚠️ **NEVER** put credentials directly in your code files
+>
+> 2. For deployment:
+>    - Use Vercel (recommended hosting platform)
+>    - Add your credentials in Vercel's Settings → Environment Variables
+>    - Follow our [Deployment Guide](#deployment-on-vercel-)
+>
+> ✅ This setup keeps your credentials safe and your app secure!
 
 ![Demo](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
 
@@ -86,10 +95,22 @@ project/
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/gowaaa/camerakit-web-w-recordfeature.git
-cd camerakit-web-w-recordfeature
-```
+   > 💡 **New to GitHub?**  
+   > Choose one of these methods:
+   >
+   > **Option A: Using GitHub Desktop (Recommended for beginners)**
+   >
+   > - Download [GitHub Desktop](https://desktop.github.com/)
+   > - Click the green "Code" button above
+   > - Click "Open with GitHub Desktop"
+   > - Choose where to save it on your computer
+   >
+   > **Option B: Using Git command line**
+
+   ```bash
+   git clone https://github.com/gowaaa/camerakit-web-w-recordfeature.git
+   cd camerakit-web-w-recordfeature
+   ```
 
 2. Install dependencies:
 
