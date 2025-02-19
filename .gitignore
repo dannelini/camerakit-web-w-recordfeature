@@ -8,4 +8,7 @@ build/
 node_modules/
 
 # Mac OS specific files
-.DS_Store 
+.DS_Store
+
+# Environment variables
+.env 

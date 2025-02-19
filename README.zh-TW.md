@@ -6,13 +6,13 @@
 一個展示 Snap Camera Kit 整合的網頁應用程式，允許使用者套用 Snap 濾鏡並錄製影片。
 
 > ⚠️ **安全警告**  
-> **請勿將此程式碼用於客戶專案**  
-> Camera Kit API Token 在開發環境中會暴露在前端程式碼中。
-> 正式部署時：
+> **請勿在未經適當設定的情況下將此程式碼用於客戶專案**  
+> 安全部署須知：
 >
 > - 使用 Vercel 的環境變數（請參考[部署到 Vercel](#部署到-vercel-) 章節）
 > - 切勿將實際憑證提交到 GitHub
-> - 敏感憑證僅保留在本地開發用的 `config.js` 中
+> - 敏感憑證僅保留在本地的 `.env` 檔案中（並確保將其加入 `.gitignore`）
+> - 切勿在前端程式碼中暴露 API 憑證
 
 ![示範](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
 
@@ -53,9 +53,10 @@ project/
 │   │   └── SwitchButton.png
 │   ├── styles/        # CSS 檔案
 │   │   └── index.v3.css
-│   ├── config.js      # Camera Kit 憑證
 │   ├── index.html     # 主要 HTML 檔案
 │   └── main.js        # 主要 JavaScript 檔案
+├── .env               # 環境變數（本地開發用）
+├── .env.example       # 環境變數範本
 ├── webpack.config.js  # Webpack 設定
 └── package.json       # 專案依賴
 ```
@@ -103,14 +104,12 @@ npm ci
 > 僅在需要修改依賴項目（添加新的或更新現有的）時才使用 `npm install`。
 
 3. 設定 Camera Kit 憑證：
-   建立 `src/config.js` 並填入你的憑證：
+   在根目錄建立 `.env` 檔案：
 
-```javascript
-export const CONFIG = {
-  LENS_ID: "__LENS_ID__",
-  GROUP_ID: "__GROUP_ID__",
-  API_TOKEN: "__API_TOKEN__",
-}
+```
+LENS_ID=__LENS_ID__
+GROUP_ID=__GROUP_ID__
+API_TOKEN=__API_TOKEN__
 ```
 
 ### 開發環境 🔧
@@ -154,7 +153,7 @@ npm run build
 > 2. 將專案程式碼上傳到 GitHub
 > 3. Vercel 帳號（可以用 GitHub 帳號註冊）
 
-在 Vercel 上安全部署（不暴露 Camera Kit 憑證）：
+在 Vercel 上安全部署：
 
 1. 在 [vercel.com](https://vercel.com) 建立帳號
 
@@ -178,55 +177,16 @@ npm run build
      API_TOKEN=你的實際_api_token
      ```
 
-4. 在專案根目錄建立 `vercel.json` 檔案：
-
-   ```json
-   {
-     "buildCommand": "npm run build",
-     "outputDirectory": "build",
-     "rewrites": [
-       {
-         "source": "/config.js",
-         "destination": "/api/config"
-       }
-     ]
-   }
-   ```
-
-5. 建立新檔案 `api/config.js`：
-
-   ```javascript
-   export const config = {
-     runtime: "edge",
-   }
-
-   export default function handler(request) {
-     const config = `export const CONFIG = {
-       LENS_ID: "${process.env.LENS_ID}",
-       GROUP_ID: "${process.env.GROUP_ID}",
-       API_TOKEN: "${process.env.API_TOKEN}"
-     }`
-
-     return new Response(config, {
-       headers: {
-         "Content-Type": "application/javascript",
-       },
-     })
-   }
-   ```
-
-此設定將會：
-
-- 在 Vercel 環境中安全保存憑證
-- 動態生成 config.js 檔案
-- 避免在儲存庫中暴露憑證
+4. 部署專案：
+   - Vercel 會自動偵測並使用環境變數
+   - 你的憑證會被安全地儲存並在建置時使用
 
 ⚠️ **安全注意事項**：
 
 - 使用 Vercel 環境變數可確保憑證安全
 - 切勿將實際憑證提交到儲存庫
-- 本機開發時複製 `config.js.example` 為 `config.js` 並填入憑證
-- API 路由會在生產環境中安全地提供憑證
+- 本機開發時複製 `.env.example` 為 `.env` 並填入憑證
+- 將 `.env` 檔案加入 `.gitignore`
 
 ## 瀏覽器支援 🌐
 

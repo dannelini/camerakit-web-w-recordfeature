@@ -8,13 +8,13 @@
 A web application demonstrating Snap's Camera Kit integration with video recording capabilities. This project allows users to apply Snap Lenses and record videos with the effects.
 
 > ⚠️ **SECURITY WARNING**  
-> **DO NOT USE THIS REPOSITORY FOR CLIENT PROJECTS**  
-> The Camera Kit API Token is exposed in client-side code in development.
-> For production deployment:
+> **DO NOT USE THIS REPOSITORY FOR CLIENT PROJECTS WITHOUT PROPER SETUP**  
+> For secure deployment:
 >
 > - Use Vercel's environment variables (see [Deployment on Vercel](#deployment-on-vercel-) section)
 > - Never commit real credentials to GitHub
-> - Keep sensitive tokens in your local `config.js` for development only
+> - Keep sensitive tokens in your local `.env` file (and ensure it's in `.gitignore`)
+> - Never expose API tokens in client-side code
 
 ![Demo](https://github.com/GOWAAA/camerakit-web-w-recordfeature/blob/main/camerakit-template-demo.gif)
 
@@ -55,9 +55,10 @@ project/
 │   │   └── SwitchButton.png
 │   ├── styles/        # CSS files
 │   │   └── index.v3.css
-│   ├── config.js      # Camera Kit credentials
 │   ├── index.html     # Main HTML file
 │   └── main.js        # Main JavaScript file
+├── .env               # Environment variables (local development)
+├── .env.example       # Example environment variables template
 ├── webpack.config.js  # Webpack configuration
 └── package.json       # Project dependencies
 ```
@@ -105,14 +106,12 @@ npm ci
 > Only use `npm install` if you need to modify dependencies (add new ones or update existing ones).
 
 3. Configure Camera Kit credentials:
-   Create `src/config.js` with your credentials:
+   Create `.env` file in the root directory:
 
-```javascript
-export const CONFIG = {
-  LENS_ID: "__LENS_ID__",
-  GROUP_ID: "__GROUP_ID__",
-  API_TOKEN: "__API_TOKEN__",
-}
+```
+LENS_ID=__LENS_ID__
+GROUP_ID=__GROUP_ID__
+API_TOKEN=__API_TOKEN__
 ```
 
 ### Development 🔧
@@ -149,14 +148,7 @@ Output will be in a new `build` directory.
 
 ### Deployment on Vercel 🚀
 
-> 💡 **New to Vercel?**  
-> Vercel is a platform that makes it easy to deploy websites. You'll need:
->
-> 1. A GitHub account - [Sign up here](https://github.com/signup)
-> 2. Your project code pushed to GitHub
-> 3. A Vercel account (you can sign up with your GitHub account)
-
-To deploy securely on Vercel without exposing your Camera Kit credentials:
+To deploy securely on Vercel:
 
 1. Create a Vercel account at [vercel.com](https://vercel.com)
 
@@ -180,55 +172,16 @@ To deploy securely on Vercel without exposing your Camera Kit credentials:
      API_TOKEN=your_actual_api_token_here
      ```
 
-4. Create a new file called `vercel.json` in your project root:
-
-   ```json
-   {
-     "buildCommand": "npm run build",
-     "outputDirectory": "build",
-     "rewrites": [
-       {
-         "source": "/config.js",
-         "destination": "/api/config"
-       }
-     ]
-   }
-   ```
-
-5. Create a new file `api/config.js`:
-
-   ```javascript
-   export const config = {
-     runtime: "edge",
-   }
-
-   export default function handler(request) {
-     const config = `export const CONFIG = {
-       LENS_ID: "${process.env.LENS_ID}",
-       GROUP_ID: "${process.env.GROUP_ID}",
-       API_TOKEN: "${process.env.API_TOKEN}"
-     }`
-
-     return new Response(config, {
-       headers: {
-         "Content-Type": "application/javascript",
-       },
-     })
-   }
-   ```
-
-This setup will:
-
-- Keep your credentials secure in Vercel's environment
-- Generate the config.js file dynamically
-- Never expose credentials in your repository
+4. Deploy your project:
+   - Vercel will automatically detect and use the environment variables
+   - Your credentials will be securely stored and used during build time
 
 ⚠️ **Security Note**:
 
 - Using environment variables on Vercel keeps your credentials secure
 - Never commit actual credentials to your repository
-- Use `config.js.example` for local development (copy to `config.js` and add your credentials)
-- The API route will securely provide credentials in production
+- Use `.env.example` for reference (copy to `.env` and add your credentials for local development)
+- Keep your `.env` file in `.gitignore`
 
 ## Browser Support 🌐
 

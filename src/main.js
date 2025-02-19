@@ -9,13 +9,7 @@
 import { bootstrapCameraKit, createMediaStreamSource, Transform2D } from "@snap/camera-kit"
 import { FFmpeg } from "@ffmpeg/ffmpeg"
 import { fetchFile, toBlobURL } from "@ffmpeg/util"
-import { CONFIG } from "./config.js"
 import "./styles/index.v3.css"
-
-if (CONFIG.API_TOKEN === "__API_TOKEN__") {
-  throw new Error("Please configure your Camera Kit credentials in config.js")
-}
-
 ;(async function () {
   let mediaRecorder
   let recordedChunks = []
@@ -24,9 +18,9 @@ if (CONFIG.API_TOKEN === "__API_TOKEN__") {
 
   const ffmpeg = new FFmpeg()
   //Replace with your own api token, lens id, and group id
-  const apiToken = CONFIG.API_TOKEN
-  const lensID = CONFIG.LENS_ID
-  const groupID = CONFIG.GROUP_ID
+  const apiToken = process.env.API_TOKEN
+  const lensID = process.env.LENS_ID
+  const groupID = process.env.GROUP_ID
 
   const cameraKit = await bootstrapCameraKit({
     apiToken: apiToken,
