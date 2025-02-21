@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --mode=development --watch",
     "build": "webpack --mode production",
-    "serve": "webpack-dashboard -- webpack-dev-server --https --port 9000"
+    "serve": "webpack serve --mode development"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +26,6 @@
     "dotenv": "^16.4.7",
     "dotenv-webpack": "^8.1.0",
     "jquery": "^3.7.0",
-    "webpack-dashboard": "^3.3.8",
     "webpack-dev-server": "^4.15.1"
   }
 }
