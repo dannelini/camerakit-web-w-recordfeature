@@ -261,6 +261,7 @@ SOFTWARE.
 - Based on Vincent Trastour's Camera Kit tutorial: [Watch on YouTube](https://www.youtube.com/watch?v=ZQM9Ua_JKMY)
 - Built with [Snap Camera Kit](https://kit.snapchat.com/camera-kit)
 - Uses [FFmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
+- Project improvements with help from Hong Wei ([@hongweitangcom](https://www.instagram.com/hongweitangcom/))
 
 ## ⚠️ Important Note About Dependencies
 

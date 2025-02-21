@@ -258,6 +258,7 @@ Copyright (c) 2024
 - 基於 Vincent Trastour 的 Camera Kit 教學：[觀看 YouTube](https://www.youtube.com/watch?v=ZQM9Ua_JKMY)
 - 使用 [Snap Camera Kit](https://kit.snapchat.com/camera-kit) 建置
 - 使用 [FFmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
+- 專案改進由 Hong Wei ([@hongweitangcom](https://www.instagram.com/hongweitangcom/)) 協助
 
 ---
 
