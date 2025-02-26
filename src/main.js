@@ -38,7 +38,7 @@ import "./styles/index.v3.css"
     video: {
       facingMode: isMobile ? { exact: "user" } : "user",
     },
-    audio: false,
+    audio: true,
   }
 
   //Get canvas element for live render target
