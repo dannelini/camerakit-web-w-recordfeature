@@ -49,7 +49,7 @@ import "./styles/index.v3.css"
 
   // Request media stream with set camera perference
   let mediaStream = await navigator.mediaDevices.getUserMedia(constraints)
-  const source = createMediaStreamSource(mediaStream, { cameraType: "user" })
+  const source = createMediaStreamSource(mediaStream, { cameraType: "user", disableSourceAudio: false })
 
   //Set up source settings so that it renders out correctly on browser
   await session.setSource(source)
@@ -63,6 +63,11 @@ import "./styles/index.v3.css"
   const lens = await cameraKit.lensRepository.loadLens(lensID, groupID)
 
   await session.applyLens(lens)
+
+  console.log(session)
+  console.log(Object.keys(session))
+  console.log(session.source)
+  console.log(Object.keys(session.source))
 
   //Get all elements require to perform logics
   const recordButton = document.getElementById("record-button")
@@ -169,34 +174,51 @@ import "./styles/index.v3.css"
 
   //Function to setup media recorder and start recording
   function manageMediaRecorder(session) {
-    console.log("session output cature")
-    const ms = liveRenderTarget.captureStream(60)
-    mediaRecorder = new MediaRecorder(ms, { mimeType: "video/mp4" })
-    console.log("create media recorder")
-    recordedChunks = []
-    // Handle recorded data once it is available
-    mediaRecorder.ondataavailable = (event) => {
-      console.log("start record")
+    // First get user's camera and microphone
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: true })
+      .then((audioVideoStream) => {
+        // Extract just the audio track
+        const audioTrack = audioVideoStream.getAudioTracks()[0]
 
-      if (event.data && event.data.size > 0) {
-        recordedChunks.push(event.data)
-      }
-    }
-    // Handle recording data when recording stopped
-    mediaRecorder.onstop = async () => {
-      console.log("stop record")
-      //display loading icon while video is being processed
-      loadingIcon.style.display = "block"
-      const blob = new Blob(recordedChunks, { type: "video/mp4" })
-      const fixedBlob = await fixVideoDuration(blob)
-      // Generate a URL for the fixed video
-      const url = URL.createObjectURL(fixedBlob)
-      //hide loading icon once video is done processing
-      loadingIcon.style.display = "none"
-      displayPostRecordButtons(url, fixedBlob)
-    }
-    //Start recording
-    mediaRecorder.start()
+        // Get the canvas stream (video only)
+        const canvasStream = liveRenderTarget.captureStream(60)
+
+        // Add the audio track to the canvas stream
+        canvasStream.addTrack(audioTrack)
+        // canvasStream.addTrack(lensAudioTrack)
+        // Now create the media recorder with both audio and video
+        mediaRecorder = new MediaRecorder(canvasStream, { mimeType: "video/mp4" })
+
+        console.log("create media recorder")
+        recordedChunks = []
+        // Handle recorded data once it is available
+        mediaRecorder.ondataavailable = (event) => {
+          console.log("start record")
+
+          if (event.data && event.data.size > 0) {
+            recordedChunks.push(event.data)
+          }
+        }
+        // Handle recording data when recording stopped
+        mediaRecorder.onstop = async () => {
+          console.log("stop record")
+          //display loading icon while video is being processed
+          loadingIcon.style.display = "block"
+          const blob = new Blob(recordedChunks, { type: "video/mp4" })
+          const fixedBlob = await fixVideoDuration(blob)
+          // Generate a URL for the fixed video
+          const url = URL.createObjectURL(fixedBlob)
+          //hide loading icon once video is done processing
+          loadingIcon.style.display = "none"
+          displayPostRecordButtons(url, fixedBlob)
+        }
+        //Start recording
+        mediaRecorder.start()
+      })
+      .catch((error) => {
+        console.error("Error accessing media devices:", error)
+      })
   }
 
   function displayPostRecordButtons(url, fixedBlob) {
