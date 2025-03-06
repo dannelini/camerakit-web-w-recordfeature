@@ -64,10 +64,10 @@ import "./styles/index.v3.css"
 
   await session.applyLens(lens)
 
+  // console.log(session)
+  // console.log(Object.keys(session))
   console.log(session)
   console.log(Object.keys(session))
-  console.log(session.source)
-  console.log(Object.keys(session.source))
 
   //Get all elements require to perform logics
   const recordButton = document.getElementById("record-button")
@@ -186,7 +186,7 @@ import "./styles/index.v3.css"
 
         // Add the audio track to the canvas stream
         canvasStream.addTrack(audioTrack)
-        // canvasStream.addTrack(lensAudioTrack)
+
         // Now create the media recorder with both audio and video
         mediaRecorder = new MediaRecorder(canvasStream, { mimeType: "video/mp4" })
 
